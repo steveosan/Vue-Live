@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,13 +65,13 @@
             </div>
 
 
-            <item-list></item-list>
-            <div class="container bg-dark text-light" >{{msg1}}</div>
-            <!--            Put this i a comp props: remove cat and cat array-->
-            <div class="container bg-dark text-light" v-for="(cat, key) in cats">
-                {{key + 1}} - {{cat.name}} - {{cat.fav}} - {{cat.count}}
-                <button class="btn btn-secondary btn-sm ml-5 m-1" @click="removeCat(n)">Remove</button>
-            </div>
+            <item-list v-bind:cats="cats"></item-list>
+<!--            <div class="container bg-dark text-light" >{{msg1}}</div>-->
+<!--            &lt;!&ndash;            Put this i a comp props: remove cat and cat array&ndash;&gt;-->
+<!--            <div class="container bg-dark text-light" v-for="(cat, key) in cats">-->
+<!--                {{key + 1}} - {{cat.name}} - {{cat.fav}} - {{cat.count}}-->
+<!--                <button class="btn btn-secondary btn-sm ml-5 m-1" @click="removeCat(n)">Remove</button>-->
+<!--            </div>-->
                 <cards-component></cards-component>
             <footer-component></footer-component>
         </v-container>
@@ -87,3 +88,4 @@
 <script src="components/templetes.js"></script>
 <script src="components/app.js"></script>
 </html>
+
