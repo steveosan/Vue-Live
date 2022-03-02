@@ -1,0 +1,15 @@
+#app {
+    font-family: 'Caveat Brush', cursive;
+}
+.v-footer{
+    /*font-size: 1.1em;*/
+    /*text-align: center;*/
+}
+
+.v-main{
+    background-color: ghostwhite;
+}
+#appBox {
+    width: 75%;
+    background-color: lightslategrey;
+}

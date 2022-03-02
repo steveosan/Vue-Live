@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+<!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  <link rel="stylesheet" href="Styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>Vue App v.04</title>
+
+</head>
+<body>
+
+  <div id="app" style="display:none;" v-show="true" class="bg-dark text-light rounded-xl">
+
+    <v-app>
+        <v-main>
+            <nav-redone></nav-redone>
+
+        <v-container id ="appBox" class=" text-light text-center mt-5">
+            <body-message></body-message>
+            <div class="container mt-5" >
+                <div class="row">
+                    <div class="col">
+                        <v-card elevation="5">Simply add your food item and if its one of your favs lets us know!</v-card>
+                    </div>
+                    <div class="col-5">
+<!-- Input Feild-->
+                        <v-text-field dark v-model="newCat.name" label="Food Item" clearable>
+                        </v-text-field>
+                        <v-btn  v-on:click="count++" x-small dark class="mx-2" fab dark  color="black">
+                        <v-icon dark> mdi-plus  </v-icon>
+                        </v-btn>Quanity of item {{count}}
+                        <v-btn  v-on:click="count--" x-small dark class="mx-2 m-0" fab dark color="black">
+                            <v-icon dark> mdi-minus </v-icon>
+                        </v-btn>
+                    </div>
+                    <div class="col">
+
+<!--Add list item button-->
+                        <v-tooltip bottom>
+                            <template v-slot:activator="{ on, attrs }">
+                                <v-btn v-bind="attrs" v-on="on" class="mx-2" fab dark color="indigo" @click="addCat">
+                                    <v-icon dark> mdi-plus </v-icon>
+                                </v-btn>
+                            </template>
+                            <span>Add your food item!</span>
+                        </v-tooltip>
+<!-- //Heart button-->
+                        <v-tooltip bottom>
+                            <template v-slot:activator="{ on, attrs }">
+                                <v-btn dark v-bind="attrs" v-on="on" class="mx-2" fab dark color="pink" @click="favCat">
+                                    <v-icon dark> mdi-heart </v-icon>
+                                </v-btn>
+                            </template>
+                            <span>Add your food item & Also set it as one of your favs!!</span>
+                        </v-tooltip>
+                    </div>
+                </div>
+            </div>
+
+
+            <item-list></item-list>
+            <div class="container bg-dark text-light" >{{msg1}}</div>
+            <!--            Put this i a comp props: remove cat and cat array-->
+            <div class="container bg-dark text-light" v-for="(cat, key) in cats">
+                {{key + 1}} - {{cat.name}} - {{cat.fav}} - {{cat.count}}
+                <button class="btn btn-secondary btn-sm ml-5 m-1" @click="removeCat(n)">Remove</button>
+            </div>
+                <cards-component></cards-component>
+            <footer-component></footer-component>
+        </v-container>
+      </v-main>
+    </v-app>
+  </div>
+</body>
+
+  <script src="https://unpkg.com/vue-emoji-picker/dist/vue-emoji-picker.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+<script src="components/templetes.js"></script>
+<script src="components/app.js"></script>
+</html>
